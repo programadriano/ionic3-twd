@@ -27,6 +27,12 @@ export class HomePage {
       });
   }
 
+  getDetail(id:number){
+    this.navCtrl.push("DetailsPage", {
+      id: id
+    })
+  }
+
   sort(){
     this.descending = !this.descending;
     this.order = this.descending ? 1 : -1;

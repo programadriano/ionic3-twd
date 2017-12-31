@@ -11,7 +11,7 @@
     <button ion-button type="button" (click)="sort()">Sort</button>
 
     <ion-list>
-        <ion-item   *ngFor="let episode of result | search : terms | sort: {property: column, order: order}">
+        <ion-item (click)="getDetail(episode.id)"   *ngFor="let episode of result | search : terms | sort: {property: column, order: order}">
          <ion-avatar item-left *ngIf="episode.image != null">
            <img src="{{episode.image.medium}}">
          </ion-avatar>
