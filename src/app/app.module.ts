@@ -6,13 +6,20 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { TwdServiceProvider } from '../providers/twd-service/twd-service';
+import {  HttpModule } from '@angular/http';
+import { SearchPipe } from '../pipes/search/search';
+import { SortPipe } from '../pipes/sort/sort';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    SearchPipe,
+    SortPipe
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
@@ -24,7 +31,8 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    TwdServiceProvider
   ]
 })
 export class AppModule {}
